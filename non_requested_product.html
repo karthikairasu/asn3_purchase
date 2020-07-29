@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0 shrink-to-fit=no, user-scalable=0"
+    />
+
+    <title>ASN</title>
+    <meta content="" name="descriptison" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <meta name="theme-color" content="#0B5E97" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/images/logo.png"
+      sizes="194x194"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Play|Titillium+Web|Roboto+Condensed|Changa|Lobster|Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Style files -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <!--- Datatables --->
+    <link
+      href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" type="text/css" href="assets/lib/style.css" />
+    <link
+      href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"
+      type="text/javascript"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+    <style>
+        .main_div{
+            width: 100%;
+        }
+        .po_table thead th {
+          padding: 4px;
+          white-space: nowrap;
+        }
+        .po_table tbody td{
+          padding: 2px;
+          white-space: nowrap;
+        }
+        .po_table tbody td input{
+            padding: 0px 3px;
+            width: auto;
+        }
+        
+          .table_fixed_height{
+            max-height: 60vh;
+            max-width: 100%;
+            overflow: auto;
+            width: 100%;
+            /*box-shadow: 0px 15px 8px -15px #111;*/
+            border-bottom: 1px solid #dcdcdc;
+          }
+          .table_fixed_height::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+          }
+          /* Track */
+          .table_fixed_height::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+          }
+          /* Handle */
+          .table_fixed_height::-webkit-scrollbar-thumb {
+            background: #888; 
+          }
+          /* Handle on hover */
+          .table_fixed_height::-webkit-scrollbar-thumb:hover {
+            background: #555; 
+          }
+          .table_fixed_height thead tr th{
+              background-color: #17a2b8;
+              color: #fff;
+              position: sticky;
+              top: -1px;
+              z-index: 10;
+          }
+          .table_fixed_height thead{
+              background-color: #17A2B8;
+              color: #fff;
+              position: sticky;
+              top: 0px;
+              z-index: 10;
+          }
+  
+          
+          /*Date Input calender icon*/
+           input[type="date"] {
+              position: relative;
+              padding: 10px;
+            }
+            input[type="date"]::-webkit-calendar-picker-indicator {
+              color: transparent;
+              background: none;
+              z-index: 1;
+            }
+            input[type="date"]:before {
+              color: transparent;
+              background: none;
+              display: block;
+              font-family: 'FontAwesome';
+              content: '\f073';
+              /* This is the calendar icon in FontAwesome */
+              width: 15px;
+              height: 20px;
+              position: absolute;
+              top: 4px;
+              right: 6px;
+              color: #495057;
+            }
+    </style>  
+  </head>
+  <body>
+    <div class="container-fluid px-0">
+      <header>
+        <nav
+          class="navbar navbar-expand-sm justify-content-center py-0 shadow fixed-top bg-white"
+        >
+          <a class="navbar-brand py-1 mr-0" href="#" onclick="goBack()">
+            <i class="fas fa-angle-left pl-2" style="font-size: 30px;"></i>
+          </a>
+          <div class="navbar-brand pl-3 py-1">
+            <a
+              href=""
+              style="
+                display: inline-block;
+                padding-top: 0px;
+                padding-bottom: 0px;
+                margin-left: 1rem;
+                font-size: 1.25rem;
+                line-height: inherit;
+                white-space: nowrap;
+              "
+            >
+              <img
+                src="http://ansara.in/nupco_purchase_test/assets/images/logo.png"
+                height="50px"
+              />
+            </a>
+          </div>
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link"><h3 class="mb-0">ASN RIYADH</h3></a>
+            </li>
+          </ul>
+          <div class="navbar-brand text-right mx-0">
+            <a
+              href=""
+              style="
+                display: inline-block;
+                padding-top: 0px;
+                padding-bottom: 0px;
+                margin-left: 1rem;
+                font-size: 1.25rem;
+                line-height: inherit;
+                white-space: nowrap;
+              "
+            >
+              <i class="fas fa-power-off"></i> Logout
+            </a>
+          </div>
+        </nav>
+      </header>
+      <main>
+        <div class="container-fluid pt-4 mt-5 main_div">
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <table class="table table-borderless mb-0">
+                <tr>
+                  <td class="py-1 px-1" width="25%"><b>ASN ID</b></td>
+                  <td class="py-1 px-0" width="1%">:</td>
+                  <td class="py-1 px-1">000-000-442</td>
+                </tr>
+                <tr>
+                  <td class="py-1 px-1" width="25%"><b>Vendor Name</b></td>
+                  <td class="py-1 px-0" width="1%">:</td>
+                  <td class="py-1 px-1">AL-ASASYAH BASIC ELECTRONICS CO. LT</td>
+                </tr>
+                <tr>
+                  <td class="py-1 px-1" width="25%"><b>Vendor No</b></td>
+                  <td class="py-1 px-0" width="1%">:</td>
+                  <td class="py-1 px-1">400100</td>
+                </tr>
+                <!--  <tr>
+                  <td class="py-1 px-1" width="25%"><b>Ship To</b></td>
+                  <td class="py-1 px-0" width="1%">:</td>
+                  <td class="py-1 px-1">Riyadh</td>
+                </tr> -->
+              </table>
+            </div>
+            <div class="col-md-6">
+              <table class="table table-borderless mb-0">
+                <tr>
+                  <td class="py-1 px-1" width="20%"><b>Delivery Date</b></td>
+                  <td class="py-1 px-0" width="1%">:</td>
+                  <td class="py-1 px-1">
+                    2020-06-24
+                    <button
+                      type="button"
+                      class="btn btn-warning btn-sm"
+                      data-toggle="modal"
+                      data-target="#date_change"
+                    >
+                      Date Change
+                    </button>
+                    <!-- <input type="date" class="form-control py-0 mb-1" name="date" required value="03/10/2020" style="height: calc(1.5em + .55rem + 1px); width: 75%;"> -->
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-1 px-1"><b>Delivery Time</b></td>
+                  <td class="py-1 px-0">:</td>
+                  <td class="py-1 px-1">
+                    08:00 AM
+                    <!-- <input type="time" class="form-control py-0 mb-1" name="time" required style="height: calc(1.5em + .55rem + 1px); width: 75%;"> -->
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="py-1 px-1"><b>Ship To</b></td>
+                  <td class="py-1 px-0">:</td>
+                  <td class="py-1 px-1">
+                    Riyadh
+                  </td>
+                </tr>
+                <!--   <tr>
+                  <td class="py-1 px-1"><b>Vendor Name</b></td>
+                  <td class="py-1 px-0">:</td>
+                  <td class="py-1 px-1">
+                    AL-ASASYAH BASIC ELECTRONICS CO. LT              </td>
+                </tr> -->
+              </table>
+
+              <!--  <form action="http://ansara.in/nupco_purchase_test/Csv_import/import_file" method="post" id="import_csv" enctype="multipart/form-data">
+                <div class="form-group row">
+                  <label for="inputPassword" class="col-sm-2 col-form-label"><b>Import Csv</b></label>
+                  <div class="col-sm-10">
+                    <input type="file" name="csv_file" id="csv_file" required accept=".csv">
+                    <input type="submit"name="import_csv" class="btn btn-info" id="import_csv_btn">
+                  </div>
+                </div>
+              </form> -->
+            </div>
+            <form
+              class="w-100"
+              method="post"
+              onSubmit="if(!confirm('Are you sure you want to accept?')){return false;}"
+            >
+              <div class="col-12 text-center table_fixed_height px-0">
+                <table class="table table-bordered mx-auto po_table mb-0">
+                  <thead class="bg-info text-white">
+                    <tr>
+                      <th class="px-1">MOH PO #</th>
+                      <th class="px-1">MOH PO Item</th>
+                      <th class="px-1">Item Description</th>
+                      <th class="px-1">MOH Gen Code</th>
+                      <th class="px-1">Invoice Number</th>
+                      <th class="px-1">Nupco PO</th>
+                      <th class="px-1">Nupco PO Item</th>
+                      <th class="px-1">Nupco Material Code</th>
+                      <th class="px-1">NTC Bus Code</th>
+                      <th class="px-1">Plant</th>
+                      <th class="px-1">Storage Location</th>
+                      <th class="px-1">Valuation Type</th>
+                      <th class="px-1">UOM</th>
+                      <th class="px-1">PO Qty</th>
+                      <th class="px-1">Requested Qty</th>
+                      <th class="px-1">Pallet Count</th>
+                      <th class="px-1">Unit Price</th>
+                      <th class="px-1">Currency</th>
+                      <th class="px-1">Batch</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="px-1">20200010000001</td>
+                      <td class="px-1">22</td>
+                      <td class="px-1">
+                        SURGICAL POWDER-FREE GLOVES , HYPO-ALLERGENIC, PEEL
+                        PACK, DISPOSABLE, STERILE, SIZE: 6, INDIVIDUALLY
+                      </td>
+                      <td class="px-1">128220134</td>
+                      <td class="px-1">7391</td>
+                      <td class="px-1">
+                        <input
+                          type="text"
+                          name="nupco_po_2012"
+                          class="form-control"
+                          value=""
+                          required
+                        />
+                      </td>
+                      <td class="px-1">
+                        <input
+                          type="text"
+                          name="nupco_po_item_2012"
+                          class="form-control"
+                          value=""
+                          required
+                        />
+                      </td>
+                      <td class="px-1">
+                        <input
+                          type="text"
+                          name="nupco_material_code_2012"
+                          class="form-control"
+                          value=""
+                          required
+                        />
+                      </td>
+                      <td class="px-1">
+                        <input
+                          type="text"
+                          name="ntc_bus_code_2012"
+                          class="form-control"
+                          value=""
+                          required
+                        />
+                      </td>
+                      <td class="px-1">
+                        <input
+                          type="text"
+                          name="plant_2012"
+                          class="form-control"
+                          value=""
+                          required
+                        />
+                      </td>
+                      <td class="px-1">
+                        <input
+                          type="text"
+                          name="storage_location_2012"
+                          class="form-control"
+                          value=""
+                          required
+                        />
+                      </td>
+                      <td class="px-1">
+                        <input
+                          type="text"
+                          name="valuation_type_2012"
+                          class="form-control"
+                          value=""
+                          required
+                        />
+                      </td>
+                      <td class="px-1">EA</td>
+                      <td class="px-1">81600</td>
+                      <td class="px-1">81600200000125200</td>
+                      <td class="px-1">15</td>
+                      <td class="px-1">0.7699</td>
+                      <td class="px-1">SR</td>
+                      <td class="px-1">
+                        <button
+                          class="btn btn-warning"
+                          type="button"
+                          data-toggle="modal"
+                          data-target="#batch_2012"
+                        >
+                          Batch
+                        </button>
+                      </td>
+                    </tr>
+                    <input type="hidden" name="field_id[]" value="2012" />
+                    <tr>
+                      <td class="px-1">20200010000001</td>
+                      <td class="px-1">23</td>
+                      <td class="px-1">
+                        SURGICAL POWDER-FREE GLOVES , HYPO-ALLERGENIC, PEEL
+                        PACK, DISPOSABLE, STERILE, SIZE: 7, INDIVIDUALLY
+                      </td>
+                      <td class="px-1">128220138</td>
+                      <td class="px-1">7391</td>
+                      <td class="px-1">
+                        <input
+                          type="text"
+                          name="nupco_po_2013"
+                          class="form-control"
+                          value=""
+                          required
+                        />
+                      </td>
+                      <td class="px-1">
+                        <input
+                          type="text"
+                          name="nupco_po_item_2013"
+                          class="form-control"
+                          value=""
+                          required
+                        />
+                      </td>
+                      <td class="px-1">
+                        <input
+                          type="text"
+                          name="nupco_material_code_2013"
+                          class="form-control"
+                          value=""
+                          required
+                        />
+                      </td>
+                      <td class="px-1">
+                        <input
+                          type="text"
+                          name="ntc_bus_code_2013"
+                          class="form-control"
+                          value=""
+                          required
+                        />
+                      </td>
+                      <td class="px-1">
+                        <input
+                          type="text"
+                          name="plant_2013"
+                          class="form-control"
+                          value=""
+                          required
+                        />
+                      </td>
+                      <td class="px-1">
+                        <input
+                          type="text"
+                          name="storage_location_2013"
+                          class="form-control"
+                          value=""
+                          required
+                        />
+                      </td>
+                      <td class="px-1">
+                        <input
+                          type="text"
+                          name="valuation_type_2013"
+                          class="form-control"
+                          value=""
+                          required
+                        />
+                      </td>
+                      <td class="px-1">EA</td>
+                      <td class="px-1">8160</td>
+                      <td class="px-1">8160</td>
+                      <td class="px-1">36</td>
+                      <td class="px-1">0.7699</td>
+                      <td class="px-1">SR</td>
+                      <td class="px-1">
+                        <button
+                          class="btn btn-warning"
+                          type="button"
+                          data-toggle="modal"
+                          data-target="#batch_2013"
+                        >
+                          Batch
+                        </button>
+                      </td>
+                    </tr>
+                    <input type="hidden" name="field_id[]" value="2013" />
+                    <tr>
+                      <td class="px-1">20200010000001</td>
+                      <td class="px-1">23</td>
+                      <td class="px-1">
+                        SURGICAL POWDER-FREE GLOVES , HYPO-ALLERGENIC, PEEL
+                        PACK, DISPOSABLE, STERILE, SIZE: 8, INDIVIDUALLY
+                      </td>
+                      <td class="px-1">128220142</td>
+                      <td class="px-1">7391</td>
+                      <td class="px-1">
+                        <input
+                          type="text"
+                          name="nupco_po_2014"
+                          class="form-control"
+                          value=""
+                          required
+                        />
+                      </td>
+                      <td class="px-1">
+                        <input
+                          type="text"
+                          name="nupco_po_item_2014"
+                          class="form-control"
+                          value=""
+                          required
+                        />
+                      </td>
+                      <td class="px-1">
+                        <input
+                          type="text"
+                          name="nupco_material_code_2014"
+                          class="form-control"
+                          value=""
+                          required
+                        />
+                      </td>
+                      <td class="px-1">
+                        <input
+                          type="text"
+                          name="ntc_bus_code_2014"
+                          class="form-control"
+                          value=""
+                          required
+                        />
+                      </td>
+                      <td class="px-1">
+                        <input
+                          type="text"
+                          name="plant_2014"
+                          class="form-control"
+                          value=""
+                          required
+                        />
+                      </td>
+                      <td class="px-1">
+                        <input
+                          type="text"
+                          name="storage_location_2014"
+                          class="form-control"
+                          value=""
+                          required
+                        />
+                      </td>
+                      <td class="px-1">
+                        <input
+                          type="text"
+                          name="valuation_type_2014"
+                          class="form-control"
+                          value=""
+                          required
+                        />
+                      </td>
+                      <td class="px-1">EA</td>
+                      <td class="px-1">8160</td>
+                      <td class="px-1">23</td>
+                      <td class="px-1">23</td>
+                      <td class="px-1">0.7699</td>
+                      <td class="px-1">SR</td>
+                      <td class="px-1">
+                        <button
+                          class="btn btn-warning"
+                          type="button"
+                          data-toggle="modal"
+                          data-target="#batch_2014"
+                        >
+                          Batch
+                        </button>
+                      </td>
+                    </tr>
+                    <input type="hidden" name="field_id[]" value="2014" />
+                  </tbody>
+                </table>
+              </div>
+              <input type="hidden" name="asn_no" value="000-000-442" />
+              <div class="form-group text-center mt-5">
+                <button
+                  type="submit"
+                  name="submit"
+                  value="submit"
+                  class="btn btn-success px-4 mx-2"
+                >
+                  Accept
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-danger px-4 mx-2"
+                  data-toggle="modal"
+                  data-target="#rejected_reason"
+                >
+                  Reject
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <nav
+          class="navbar fixed-bottom bg-white br_title p-0"
+          style="border: none;"
+        >
+          <h6
+            class="mb-0"
+            style="font-size: 12px; color: #17a2b8; font-weight: bold;"
+          >
+            Nupco
+          </h6>
+        </nav>
+      </footer>
+    </div>
+    <!-- The Modal -->
+    <div class="modal" id="batch_2012">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+          
+            <!-- Modal Header -->
+            <div class="modal-header py-1">
+              <h4 class="modal-title mx-auto"><b>Batch</b></h4>
+              <button type="button" class="close ml-0 pl-0 pb-0" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+           
+            <div class="modal-body pt-1">
+             <table class="table table-bordered" >
+                <thead class="bg-info text-white text-nowrap text-center">
+                  <tr>
+                    <th>Qty</th>
+                    <th>Vendor Batch</th>
+                    <th>Manufacture Date</th>
+                    <th>Expiry Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                                                          <tr>
+                    <td>81600200000125200</td>
+                    <td>2002069220020696</td>
+                    <td>0000-00-00</td>
+                    <td>0000-00-00</td>
+                  </tr>
+                                    </tbody>
+              </table>
+            </div>
+            <!-- Modal footer -->
+            
+            <div class="modal-footer justify-content-center">
+             
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+     
+    <!-- The Modal -->
+      <div class="modal" id="batch_2013">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+          
+            <!-- Modal Header -->
+            <div class="modal-header py-1">
+              <h4 class="modal-title mx-auto"><b>Batch</b></h4>
+              <button type="button" class="close ml-0 pl-0 pb-0" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+           
+            <div class="modal-body pt-1">
+             <table class="table table-bordered" >
+                <thead class="bg-info text-white text-nowrap text-center">
+                  <tr>
+                    <th>Qty</th>
+                    <th>Vendor Batch</th>
+                    <th>Manufacture Date</th>
+                    <th>Expiry Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                                                          <tr>
+                    <td>8160</td>
+                    <td>2323</td>
+                    <td>0000-00-00</td>
+                    <td>0000-00-00</td>
+                  </tr>
+                                    </tbody>
+              </table>
+            </div>
+            <!-- Modal footer -->
+            
+            <div class="modal-footer justify-content-center">
+             
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+     
+    <!-- The Modal -->
+      <div class="modal" id="batch_2014">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+          
+            <!-- Modal Header -->
+            <div class="modal-header py-1">
+              <h4 class="modal-title mx-auto"><b>Batch</b></h4>
+              <button type="button" class="close ml-0 pl-0 pb-0" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+           
+            <div class="modal-body pt-1">
+             <table class="table table-bordered" >
+                <thead class="bg-info text-white text-nowrap text-center">
+                  <tr>
+                    <th>Qty</th>
+                    <th>Vendor Batch</th>
+                    <th>Manufacture Date</th>
+                    <th>Expiry Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                                                          <tr>
+                    <td>23</td>
+                    <td>12345</td>
+                    <td>0000-00-00</td>
+                    <td>0000-00-00</td>
+                  </tr>
+                                    </tbody>
+              </table>
+            </div>
+            <!-- Modal footer -->
+            
+            <div class="modal-footer justify-content-center">
+             
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+    
+<!-- The Modal -->
+<div class="modal fade" id="rejected_reason">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+    
+      <!-- Modal Header -->
+      <div class="modal-header py-0" style="border-bottom: none;">
+        <button type="button" class="close" data-dismiss="modal" style="outline: none; margin: 0rem -1rem -1rem auto;">&times;</button>
+      </div>
+      
+      <!-- Modal body -->
+      <div class="modal-body text-center">
+        <form name="" method="post" action="http://ansara.in/nupco_purchase_test/web/non_rejection">
+        <h5 class="mb-3 text-danger"><b>Reason For Rejection</b></h5>
+        <table id="example" class="table table-borderless mb-0">
+          <tr>
+            <td class="py-0 px-1" width="20%"><b>Reason</b></td>
+            <td class="py-0 px-0" width="1%">:</td>
+            <td class="py-0 px-1">
+              <textarea class="form-control py-0 mb-1" rows="2" name="reason" style="width: 80%;"></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <p><b>New Suggested Date and Time</b></p>
+            </td>
+          </tr>
+          <tr>
+            <td class="py-0 px-1" width="20%"><b>Date</b></td>
+            <td class="py-0 px-0" width="1%">:</td>
+            <td class="py-0 px-1">
+              <input type="text" class="form-control py-0 mb-1 startDa" name="date"  onkeydown="return false" required style="height: calc(1.5em + .55rem + 1px); width: 80%;">
+            </td>
+          </tr>
+          <tr>
+            <td class="py-0 px-1"><b>Time</b></td>
+            <td class="py-0 px-0">:</td>
+            <td class="py-0 px-1">
+              <div class="btn-group" style="width: 100%;padding-right: 69px;">
+                <button type="button" class="btn btn-primary" onclick="select_time(8)">Morning</button>
+                <button type="button" class="btn btn-secondary" onclick="select_time(12)">Afternoon</button>
+              </div>
+              <!--  <input type="text"  class="form-control py-0 ml-auto mb-1" id="set_timein" name="time"  style="height: 0px; width: 50%; border: none;padding-right: 12px;" required> -->
+            </td>
+            </td>
+          </tr> 
+        </table>
+      </div>
+      
+          <input type="hidden" name="asn_no" value="000-000-442">
+      
+      <!-- Modal footer -->
+      <div class="modal-footer py-2 mt-3 mb-3" style="border-top: none;">
+        <button name="submit" type="submit" value="submit" class="btn btn-info px-5 mx-auto" >Submit</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Date Change Modal -->
+<div class="modal fade" id="date_change">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Change Date</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <!-- Modal body -->
+      <form action="http://ansara.in/nupco_purchase_test/web/change_delivery_date" method="post" >
+        <div class="modal-body">
+          <input type="date" placeholder="YYYY-MM-DD"  class="form-control py-0 mb-1 " onchange="select_date(this.value)" name="date_change" required>
+          <input type="hidden" name="asn_no" value="000-000-442">
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer justify-content-center">
+          <button type="submit" name="submit" value="ss" class="btn btn-success">Submit</button>
+        </div>
+      </form>
+      
+    </div>
+  </div>
+</div>
+
+
+    <!-- script files -->
+    <script
+      src="https://kit.fontawesome.com/80895110d5.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <!--- Datatables --->
+    <script
+      src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"
+      type="text/javascript"
+    ></script>
+
+    <script type="text/javascript">
+    var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+    $('.startDa').datepicker({
+        uiLibrary: 'bootstrap4',
+        iconsLibrary: 'fontawesome',
+        minDate: today,
+        format: 'yyyy-mm-dd' 
+    }); 
+ 
+    function select_time(hour){
+     
+      $("#set_timein").val(+hour+":00");
+    }
+  </script>
+  	<script>
+		$(document).ready(function() {
+ //    	$('#example').DataTable();
+	// } );
+
+//     $('#example').DataTable( {
+//         "order": [[ 0, "desc" ]]
+//     } );
+// } );
+$('#example').dataTable({
+  "order": [[ 0, "desc" ]],
+  drawCallback: function(settings) {
+    var pagination = $(this).closest('.dataTables_wrapper').find('.dataTables_paginate');
+    pagination.toggle(this.api().page.info().pages > 1);
+  }
+
+    } );
+} );
+	$('.alert').delay(10000).fadeOut('slow');
+	
+
+</script>
+  </body>
+</html>
