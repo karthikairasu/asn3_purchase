@@ -65,48 +65,29 @@
           <a class="navbar-brand text-right mx-0"></a>
         </nav>
       </header>
-      <main>
-        <div class="container-fluid main_div mt-5 pt-4">
-          <div class="row pt-5">
-            <div
-              class="col-10 col-sm-6 mx-auto shadow border border-primary p-4"
-            >
+      <main class="container-fluid pt-5 mt-5 main_div">
+        <div class="row pt-5">
+          <div class="col-10 col-sm-6 mx-auto shadow border p-4">
               <form class="mx-auto w-100" method="post">
-                <h5 class="text-center text-info mb-3">
-                  <b>Suppliers Login page</b>
-                </h5>
-                <div class="form-group mb-1">
-                  <label for="username"><b>Username :</b></label>
-                  <input
-                    type="text"
-                    name="username"
-                    placeholder="Username"
-                    class="form-control"
-                    required=""
-                  />
+                <h5 class="text-center text-info mb-3"><b>NUPCO Login Page</b></h5>
+                          <div class="form-group mb-1">
+                  <label for="national_id"><b>Username :</b></label>
+                  <input type="text" name="username" id="username" class="form-control" required>
                 </div>
                 <div class="form-group mb-1">
-                  <label for="password"><b>Password :</b></label>
-                  <input
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    class="form-control"
-                    required=""
-                  />
+                  <label for="dob"><b>Password :</b></label>
+                  <input type="password" name="password" class="form-control" required>
+                </div>
+                <div class="form-group mb-1">
+                  <label for="dob"><b>Plant :</b></label>
+                   <select class="form-control" name="plant" id="plant">
+                 </select>
+                 <span class="text-danger err_res"></span>
                 </div>
                 <div class="form-group text-center mt-5">
-                  <button
-                    type="submit"
-                    class="btn btn-outline-info w-50"
-                    name="sign_in"
-                    value="submit"
-                  >
-                    LOGIN
-                  </button>
+                  <button type="submit" class="btn btn-outline-info w-50" name="submit" value="submit">LOGIN</a>
                 </div>
               </form>
-            </div>
           </div>
         </div>
       </main>
