@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0 shrink-to-fit=no, user-scalable=0"
+    />
+
+    <title>ASN</title>
+    <meta content="" name="descriptison" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <meta name="theme-color" content="#0B5E97" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/images/logo.png"
+      sizes="194x194"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Play|Titillium+Web|Roboto+Condensed|Changa|Lobster|Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Style files -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <!--- Datatables --->
+    <link
+      href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" type="text/css" href="assets/lib/style.css" />
+    <link
+      href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"
+      type="text/javascript"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+    <style type="text/css">
+      body {
+        font-family: "Roboto Condensed", sans-serif;
+      }
+      a {
+        text-decoration: none;
+        color: #0056b3;
+      }
+      a:focus {
+        outline: none;
+      }
+      nav {
+        border-bottom: 3px solid #17a2b8;
+      }
+      .table td,
+      .table tr {
+        vertical-align: middle;
+      }
+      .main_div {
+        width: 100%;
+      }
+      .table_fixed_height {
+        max-height: 81vh;
+        max-width: 100vw;
+        overflow: auto;
+        width: 100%;
+        /*box-shadow: 0px 15px 8px -15px #111;*/
+        border-bottom: 1px solid #dcdcdc;
+      }
+      .table_fixed_height::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      /* Track */
+      .table_fixed_height::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      /* Handle */
+      .table_fixed_height::-webkit-scrollbar-thumb {
+        background: #888;
+      }
+      /* Handle on hover */
+      .table_fixed_height::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+      .table_fixed_height thead tr th {
+        background-color: #17a2b8;
+        color: #fff;
+        position: sticky;
+        top: -1px;
+        z-index: 10;
+      }
+      .table_fixed_height thead {
+        background-color: #17a2b8;
+        color: #fff;
+        position: sticky;
+        top: 0px;
+        z-index: 10;
+      }
+      .po_table label {
+        display: inline-block;
+        margin-bottom: 0px;
+        width: 100%;
+        height: 100%;
+      }
+      .table_padding thead tr th {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        white-space: nowrap;
+      }
+      .table_padding tbody tr td {
+        padding: 5px;
+        white-space: nowrap;
+      }
+      .dataTables_length label {
+        margin-bottom: 0px;
+      }
+      .dataTables_filter label {
+        margin-bottom: 0px;
+      }
+      .dataTables_wrapper .dataTables_info {
+        padding-top: 5px;
+      }
+      .dataTables_wrapper .dataTables_paginate .paginate_button {
+        padding: 0.1em 1em;
+      }
+      .v-align-sub {
+        vertical-align: sub;
+      }
+      .bg-ltblue {
+        background: #dcebf2;
+      }
+      .btn-dred {
+        -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18),
+          0 4px 15px 0 rgba(0, 0, 0, 0.15);
+        box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18),
+          0 4px 15px 0 rgba(0, 0, 0, 0.15);
+        background-color: #e32b1f !important;
+        color: #fff !important;
+      }
+      .sd {
+        box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18),
+          0 4px 15px 0 rgba(0, 0, 0, 0.15);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid px-0">
+      <header>
+        <nav
+          class="navbar navbar-expand-sm justify-content-center py-0 shadow fixed-top bg-white"
+        >
+          <a class="navbar-brand py-1 mr-0" href="#" onclick="goBack()">
+            <i class="fas fa-angle-left pl-2" style="font-size: 30px;"></i>
+          </a>
+          <div class="navbar-brand pl-3 py-1">
+            <a
+              href=""
+              style="
+                display: inline-block;
+                padding-top: 0px;
+                padding-bottom: 0px;
+                margin-left: 1rem;
+                font-size: 1.25rem;
+                line-height: inherit;
+                white-space: nowrap;
+              "
+            >
+              <img src="assets/images/logo.png" height="50px" />
+            </a>
+          </div>
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link"><h3 class="mb-0">ASN RIYADH</h3></a>
+            </li>
+          </ul>
+          <div class="navbar-brand text-right mx-0">
+            <a
+              href=""
+              style="
+                display: inline-block;
+                padding-top: 0px;
+                padding-bottom: 0px;
+                margin-left: 1rem;
+                font-size: 1.25rem;
+                line-height: inherit;
+                white-space: nowrap;
+              "
+            >
+              <i class="fas fa-power-off"></i> Logout
+            </a>
+          </div>
+        </nav>
+      </header>
+      <main>
+        <div class="conatiner-fluid">
+          <form class="" method="POST" action="">
+            <div class="row pt-4 mt-5 pb-2 mx-0 text-center bg-ltblue">
+              <div class="col-lg-3 col-md-3 col-6">
+                <div class="form-group row mb-0">
+                  <div class="col-lg-3 px-1">
+                    <label class="d-inline v-align-sub">ASN ID:</label>
+                  </div>
+                  <div class="col-lg-4 px-1">
+                    <input
+                      type="text"
+                      name="asn_no_to"
+                      class="form-control-sm col"
+                      id="v_id1"
+                      onfocus="key('1')"
+                      value="000-000-000"
+                    />
+                  </div>
+                  <div class="">
+                    <label class="d-inline v-align-sub">to</label>
+                  </div>
+                  <div class="col-lg-4 px-1">
+                    <input
+                      type="text"
+                      name="asn_no_from"
+                      class="form-control-sm col"
+                      id="v_id2"
+                      onfocus="key('1')"
+                      value="000-000-000"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-6">
+                <div class="form-group row mb-0">
+                  <div class="col-lg-3 px-0">
+                    <label class="d-inline v-align-sub">Delivery Date:</label>
+                  </div>
+                  <div class="col-lg-4 px-1">
+                    <input
+                      type="date"
+                      class="form-control-sm col"
+                      id="dt1"
+                      onfocus="key(2)"
+                      name="delivery_date_to"
+                      value=""
+                    />
+                  </div>
+                  <div class="col-lg-1 px-1">
+                    <label class="d-inline v-align-sub">to</label>
+                  </div>
+                  <div class="col-lg-4 px-1">
+                    <input
+                      type="date"
+                      class="form-control-sm col"
+                      id="dt2"
+                      onfocus="key(2)"
+                      name="delivery_date_from"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-2 col-6">
+                <div class="form-group row mb-0">
+                  <div class="col-lg-5 px-1">
+                    <label class="d-inline v-align-sub">Vendor ID:</label>
+                  </div>
+                  <div class="col-lg-7 px-0">
+                    <input
+                      type="text"
+                      class="form-control-sm col"
+                      name="vendor_id"
+                      id="v_ids"
+                      onfocus="key(3)"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-3 col-6">
+                <div class="form-group row mb-0">
+                  <!-- <div class="col-lg-3 px-0">
+                              <label class="d-inline v-align-sub">Location  :</label>
+                          </div>
+                          <div class="col-lg-5 px-1">
+                                <select class="js-example-basic-multiple form-control-sm col" name="location[]"  id="dr" onchange="key(4)" multiple="multiple">
+                            
+                                                              <option value="1" >Riyadh </option>
+                                                              <option value="2" >Jeddha </option>
+                                                              <option value="3" >Dammam </option>
+                                                              <option value="4" >PMAH  </option>
+                                 
+                              </select>
+                          </div> -->
+                  <div class="col-lg-4 px-0">
+                    <button
+                      type="submit"
+                      name="search"
+                      value="search"
+                      class="btn btn-dred btn-sm px-4"
+                    >
+                      Search
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="container-fluid main_div">
+          <div class="row">
+            <div class="col-2">
+              <a
+                class=""
+                href="javascript:void(0)"
+                style="width: 30%;"
+                onclick="exportTableToCSV('new_request.csv')"
+              >
+                <button type="button" class="btn btn-outline-primary btn-sm">
+                  <i class="fas fa-file-export"></i>Export
+                </button>
+              </a>
+            </div>
+            <div class="col-4">
+              <form
+                action="http://ansara.in/nupco_purchase_test/Csv_import/import_file"
+                method="post"
+                id="import_csv"
+                enctype="multipart/form-data"
+              >
+                <div class="form-group">
+                  <label for="inputPassword" class="col-form-label"
+                    ><b>Import Csv :</b></label
+                  >
+                  <input
+                    type="file"
+                    name="csv_file"
+                    id="csv_file"
+                    required
+                    accept=".csv"
+                  />
+                  <input
+                    type="submit"
+                    name="import_csv"
+                    class="btn btn-info btn-sm"
+                    id="import_csv_btn"
+                  />
+                </div>
+              </form>
+            </div>
+            <div class="col-6"></div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 table_fixed_height text-center px-0">
+              <table
+                id="T1"
+                class="table table-bordered mx-auto po_table table_padding mb-0"
+              >
+                <thead class="bg-info text-white">
+                  <tr>
+                    <th>ASN ID</th>
+                    <th>Invoice #</th>
+                    <th>Vendor</th>
+                    <th>Vendor Name</th>
+                    <th>MOH PO #</th>
+                    <th>MOH PO Item</th>
+                    <th>Nupco PO</th>
+                    <th>Nupco PO Item</th>
+                    <th>Nupco Code</th>
+                    <th>MOH Code</th>
+                    <th>NTCB Code</th>
+                    <th>Description</th>
+                    <th>Plant</th>
+                    <th>Storage Location</th>
+                    <th>Valuation Type</th>
+                    <th>Unite Price</th>
+                    <th>Currency</th>
+                    <th>PO Qty</th>
+                    <th>Batch Id</th>
+                    <th>Item ID</th>
+                    <th>ASN Qty</th>
+                    <th>Vendor Batch</th>
+                    <th>Manufacture Date</th>
+                    <th>Expiry Date</th>
+                    <th>Pallet</th>
+                    <th>Delivery Date</th>
+                    <th>Delivery Time</th>
+                  </tr>
+                </thead>
+                <tbody id="repo">
+                  <tr>
+                    <td>000-000-095</td>
+                    <td>3355539</td>
+                    <td>400019</td>
+                    <td>Abdulrehman Algosaibi G.T.C</td>
+                    <td>39001220142</td>
+                    <td>10</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>547033269</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>0.82</td>
+                    <td>USD</td>
+                    <td>11250</td>
+                    <td>632</td>
+                    <td>369</td>
+                    <td>11250</td>
+                    <td>S11024A</td>
+                    <td>2019-10-30</td>
+                    <td>2022-09-30</td>
+                    <td>1</td>
+                    <td>2020-05-06</td>
+                    <td>08:00:00</td>
+                  </tr>
+                  <tr>
+                    <td>000-000-095</td>
+                    <td>3354178</td>
+                    <td>400019</td>
+                    <td>Abdulrehman Algosaibi G.T.C</td>
+                    <td>39001220142</td>
+                    <td>10</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>547014050</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>24.610</td>
+                    <td>USD</td>
+                    <td>120</td>
+                    <td>632</td>
+                    <td>370</td>
+                    <td>11250</td>
+                    <td>S11024A</td>
+                    <td>2019-10-30</td>
+                    <td>2022-09-30</td>
+                    <td>1</td>
+                    <td>2020-05-06</td>
+                    <td>08:00:00</td>
+                  </tr>
+                  <tr>
+                    <td>000-000-095</td>
+                    <td>3354199</td>
+                    <td>400019</td>
+                    <td>Abdulrehman Algosaibi G.T.C</td>
+                    <td>39001220142</td>
+                    <td>10</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>547014052</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>98.5</td>
+                    <td>USD</td>
+                    <td>600</td>
+                    <td>632</td>
+                    <td>371</td>
+                    <td>11250</td>
+                    <td>S11024A</td>
+                    <td>2019-10-30</td>
+                    <td>2022-09-30</td>
+                    <td>1</td>
+                    <td>2020-05-06</td>
+                    <td>08:00:00</td>
+                  </tr>
+                  <tr>
+                    <td>000-000-306</td>
+                    <td>90017697</td>
+                    <td>400022</td>
+                    <td>Arabian Health Care Supply Company</td>
+                    <td>20200010000001</td>
+                    <td>1370</td>
+                    <td>4500014140</td>
+                    <td>1370</td>
+                    <td>4231220102800</td>
+                    <td>136510099</td>
+                    <td>4231220102802</td>
+                    <td></td>
+                    <td>CRC1</td>
+                    <td>C000</td>
+                    <td>1220102801</td>
+                    <td>28.04</td>
+                    <td>SAR</td>
+                    <td>150</td>
+                    <td>1893</td>
+                    <td>1500</td>
+                    <td>150</td>
+                    <td>EE104-19</td>
+                    <td>2019-03-30</td>
+                    <td>2024-03-30</td>
+                    <td>1</td>
+                    <td>2020-05-19</td>
+                    <td>08:00:00</td>
+                  </tr>
+                  <tr>
+                    <td>000-000-306</td>
+                    <td>90017697</td>
+                    <td>400022</td>
+                    <td>Arabian Health Care Supply Company</td>
+                    <td>20200010000001</td>
+                    <td>1450</td>
+                    <td>4500014140</td>
+                    <td>1370</td>
+                    <td>4231220102800</td>
+                    <td>136510100</td>
+                    <td>4231220102802</td>
+                    <td></td>
+                    <td>CRC1</td>
+                    <td>C000</td>
+                    <td>1220102801</td>
+                    <td>38.94</td>
+                    <td>SAR</td>
+                    <td>120</td>
+                    <td>1893</td>
+                    <td>1501</td>
+                    <td>150</td>
+                    <td>EE104-19</td>
+                    <td>2019-03-30</td>
+                    <td>2024-03-30</td>
+                    <td>1</td>
+                    <td>2020-05-19</td>
+                    <td>08:00:00</td>
+                  </tr>
+                  <tr>
+                    <td>000-000-306</td>
+                    <td>90017697</td>
+                    <td>400022</td>
+                    <td>Arabian Health Care Supply Company</td>
+                    <td>20200010000001</td>
+                    <td>1530</td>
+                    <td>4500014140</td>
+                    <td>1370</td>
+                    <td>4231220102800</td>
+                    <td>136510116</td>
+                    <td>4231220102802</td>
+                    <td></td>
+                    <td>CRC1</td>
+                    <td>C000</td>
+                    <td>1220102801</td>
+                    <td>34.94</td>
+                    <td>SAR</td>
+                    <td>100</td>
+                    <td>1893</td>
+                    <td>1502</td>
+                    <td>150</td>
+                    <td>EE104-19</td>
+                    <td>2019-03-30</td>
+                    <td>2024-03-30</td>
+                    <td>1</td>
+                    <td>2020-05-19</td>
+                    <td>08:00:00</td>
+                  </tr>
+                  <tr>
+                    <td>000-000-306</td>
+                    <td>90017697</td>
+                    <td>400022</td>
+                    <td>Arabian Health Care Supply Company</td>
+                    <td>20200010000001</td>
+                    <td>1610</td>
+                    <td>4500014140</td>
+                    <td>1370</td>
+                    <td>4231220102800</td>
+                    <td>136510414</td>
+                    <td>4231220102802</td>
+                    <td></td>
+                    <td>CRC1</td>
+                    <td>C000</td>
+                    <td>1220102801</td>
+                    <td>233.55</td>
+                    <td>SAR</td>
+                    <td>12</td>
+                    <td>1893</td>
+                    <td>1503</td>
+                    <td>150</td>
+                    <td>EE104-19</td>
+                    <td>2019-03-30</td>
+                    <td>2024-03-30</td>
+                    <td>1</td>
+                    <td>2020-05-19</td>
+                    <td>08:00:00</td>
+                  </tr>
+                  <tr>
+                    <td>000-000-306</td>
+                    <td>90017697</td>
+                    <td>400022</td>
+                    <td>Arabian Health Care Supply Company</td>
+                    <td>20200010000001</td>
+                    <td>1690</td>
+                    <td>4500014140</td>
+                    <td>1370</td>
+                    <td>4231220102800</td>
+                    <td>136520270</td>
+                    <td>4231220102802</td>
+                    <td></td>
+                    <td>CRC1</td>
+                    <td>C000</td>
+                    <td>1220102801</td>
+                    <td>47</td>
+                    <td>SAR</td>
+                    <td>209</td>
+                    <td>1893</td>
+                    <td>1504</td>
+                    <td>150</td>
+                    <td>EE104-19</td>
+                    <td>2019-03-30</td>
+                    <td>2024-03-30</td>
+                    <td>1</td>
+                    <td>2020-05-19</td>
+                    <td>08:00:00</td>
+                  </tr>
+                  <tr>
+                    <td>000-000-306</td>
+                    <td>90017697</td>
+                    <td>400022</td>
+                    <td>Arabian Health Care Supply Company</td>
+                    <td>20200010000001</td>
+                    <td>1770</td>
+                    <td>4500014140</td>
+                    <td>1370</td>
+                    <td>4231220102800</td>
+                    <td>136520271</td>
+                    <td>4231220102802</td>
+                    <td></td>
+                    <td>CRC1</td>
+                    <td>C000</td>
+                    <td>1220102801</td>
+                    <td>46.9</td>
+                    <td>SAR</td>
+                    <td>220</td>
+                    <td>1893</td>
+                    <td>1505</td>
+                    <td>150</td>
+                    <td>EE104-19</td>
+                    <td>2019-03-30</td>
+                    <td>2024-03-30</td>
+                    <td>1</td>
+                    <td>2020-05-19</td>
+                    <td>08:00:00</td>
+                  </tr>
+                  <tr>
+                    <td>000-000-306</td>
+                    <td>90017697</td>
+                    <td>400022</td>
+                    <td>Arabian Health Care Supply Company</td>
+                    <td>20200010000001</td>
+                    <td>1850</td>
+                    <td>4500014140</td>
+                    <td>1370</td>
+                    <td>4231220102800</td>
+                    <td>136530337</td>
+                    <td>4231220102802</td>
+                    <td></td>
+                    <td>CRC1</td>
+                    <td>C000</td>
+                    <td>1220102801</td>
+                    <td>214.85</td>
+                    <td>SAR</td>
+                    <td>5</td>
+                    <td>1893</td>
+                    <td>1506</td>
+                    <td>150</td>
+                    <td>EE104-19</td>
+                    <td>2019-03-30</td>
+                    <td>2024-03-30</td>
+                    <td>1</td>
+                    <td>2020-05-19</td>
+                    <td>08:00:00</td>
+                  </tr>
+                  <tr>
+                    <td>000-000-306</td>
+                    <td>90017697</td>
+                    <td>400022</td>
+                    <td>Arabian Health Care Supply Company</td>
+                    <td>20200010000001</td>
+                    <td>1850</td>
+                    <td>4500014140</td>
+                    <td>1370</td>
+                    <td>4231220102800</td>
+                    <td>136530337</td>
+                    <td>4231220102802</td>
+                    <td></td>
+                    <td>CRC1</td>
+                    <td>C000</td>
+                    <td>1220102801</td>
+                    <td>214.85</td>
+                    <td>SAR</td>
+                    <td>5</td>
+                    <td>1893</td>
+                    <td>1507</td>
+                    <td>150</td>
+                    <td>EE104-19</td>
+                    <td>2019-03-30</td>
+                    <td>2024-03-30</td>
+                    <td>1</td>
+                    <td>2020-05-19</td>
+                    <td>08:00:00</td>
+                  </tr>
+                  <tr>
+                    <td>000-000-306</td>
+                    <td>90017697</td>
+                    <td>400022</td>
+                    <td>Arabian Health Care Supply Company</td>
+                    <td>20200010000001</td>
+                    <td>10</td>
+                    <td>4500014140</td>
+                    <td>1370</td>
+                    <td>4231220102800</td>
+                    <td>136530342</td>
+                    <td>4231220102802</td>
+                    <td></td>
+                    <td>CRC1</td>
+                    <td>C000</td>
+                    <td>1220102801</td>
+                    <td>38</td>
+                    <td>SAR</td>
+                    <td>188</td>
+                    <td>1893</td>
+                    <td>1508</td>
+                    <td>150</td>
+                    <td>EE104-19</td>
+                    <td>2019-03-30</td>
+                    <td>2024-03-30</td>
+                    <td>1</td>
+                    <td>2020-05-19</td>
+                    <td>08:00:00</td>
+                  </tr>
+                  <tr>
+                    <td>000-000-306</td>
+                    <td>90017695</td>
+                    <td>400022</td>
+                    <td>Arabian Health Care Supply Company</td>
+                    <td>20200010000001</td>
+                    <td>10</td>
+                    <td>4500014140</td>
+                    <td>1370</td>
+                    <td>4231220102800</td>
+                    <td>136530344</td>
+                    <td>4231220102802</td>
+                    <td></td>
+                    <td>CRC1</td>
+                    <td>C000</td>
+                    <td>1220102801</td>
+                    <td>39.06</td>
+                    <td>SAR</td>
+                    <td>90</td>
+                    <td>1893</td>
+                    <td>1509</td>
+                    <td>150</td>
+                    <td>EE104-19</td>
+                    <td>2019-03-30</td>
+                    <td>2024-03-30</td>
+                    <td>1</td>
+                    <td>2020-05-19</td>
+                    <td>08:00:00</td>
+                  </tr>
+                  <tr>
+                    <td>000-000-306</td>
+                    <td>90017695</td>
+                    <td>400022</td>
+                    <td>Arabian Health Care Supply Company</td>
+                    <td>20200010000001</td>
+                    <td>10</td>
+                    <td>4500014140</td>
+                    <td>1370</td>
+                    <td>4231220102800</td>
+                    <td>136530365</td>
+                    <td>4231220102802</td>
+                    <td></td>
+                    <td>CRC1</td>
+                    <td>C000</td>
+                    <td>1220102801</td>
+                    <td>41.54</td>
+                    <td>SAR</td>
+                    <td>250</td>
+                    <td>1893</td>
+                    <td>1510</td>
+                    <td>150</td>
+                    <td>EE104-19</td>
+                    <td>2019-03-30</td>
+                    <td>2024-03-30</td>
+                    <td>1</td>
+                    <td>2020-05-19</td>
+                    <td>08:00:00</td>
+                  </tr>
+                  <tr>
+                    <td>000-000-306</td>
+                    <td>90017695</td>
+                    <td>400022</td>
+                    <td>Arabian Health Care Supply Company</td>
+                    <td>20200010000001</td>
+                    <td>10</td>
+                    <td>4500014140</td>
+                    <td>1370</td>
+                    <td>4231220102800</td>
+                    <td>136530371</td>
+                    <td>4231220102802</td>
+                    <td></td>
+                    <td>CRC1</td>
+                    <td>C000</td>
+                    <td>1220102801</td>
+                    <td>40.94</td>
+                    <td>SAR</td>
+                    <td>120</td>
+                    <td>1893</td>
+                    <td>1511</td>
+                    <td>150</td>
+                    <td>EE104-19</td>
+                    <td>2019-03-30</td>
+                    <td>2024-03-30</td>
+                    <td>1</td>
+                    <td>2020-05-19</td>
+                    <td>08:00:00</td>
+                  </tr>
+                  <tr>
+                    <td>000-000-306</td>
+                    <td>90017695</td>
+                    <td>400022</td>
+                    <td>Arabian Health Care Supply Company</td>
+                    <td>20200010000001</td>
+                    <td>10</td>
+                    <td>4500014140</td>
+                    <td>1370</td>
+                    <td>4231220102800</td>
+                    <td>136530372</td>
+                    <td>4231220102802</td>
+                    <td></td>
+                    <td>CRC1</td>
+                    <td>C000</td>
+                    <td>1220102801</td>
+                    <td>40.84</td>
+                    <td>SAR</td>
+                    <td>313</td>
+                    <td>1893</td>
+                    <td>1512</td>
+                    <td>150</td>
+                    <td>EE104-19</td>
+                    <td>2019-03-30</td>
+                    <td>2024-03-30</td>
+                    <td>1</td>
+                    <td>2020-05-19</td>
+                    <td>08:00:00</td>
+                  </tr>
+                  <tr>
+                    <td>000-000-306</td>
+                    <td>90017695</td>
+                    <td>400022</td>
+                    <td>Arabian Health Care Supply Company</td>
+                    <td>20200010000001</td>
+                    <td>10</td>
+                    <td>4500014140</td>
+                    <td>1370</td>
+                    <td>4231220102800</td>
+                    <td>136530379</td>
+                    <td>4231220102802</td>
+                    <td></td>
+                    <td>CRC1</td>
+                    <td>C000</td>
+                    <td>1220102801</td>
+                    <td>49.29</td>
+                    <td>SAR</td>
+                    <td>188</td>
+                    <td>1893</td>
+                    <td>1513</td>
+                    <td>150</td>
+                    <td>EE104-19</td>
+                    <td>2019-03-30</td>
+                    <td>2024-03-30</td>
+                    <td>1</td>
+                    <td>2020-05-19</td>
+                    <td>08:00:00</td>
+                  </tr>
+                  <tr>
+                    <td>000-000-306</td>
+                    <td>90017695</td>
+                    <td>400022</td>
+                    <td>Arabian Health Care Supply Company</td>
+                    <td>20200010000001</td>
+                    <td>10</td>
+                    <td>4500014140</td>
+                    <td>1370</td>
+                    <td>4231220102800</td>
+                    <td>136530383</td>
+                    <td>4231220102802</td>
+                    <td></td>
+                    <td>CRC1</td>
+                    <td>C000</td>
+                    <td>1220102801</td>
+                    <td>219.82</td>
+                    <td>SAR</td>
+                    <td>12</td>
+                    <td>1893</td>
+                    <td>1514</td>
+                    <td>150</td>
+                    <td>EE104-19</td>
+                    <td>2019-03-30</td>
+                    <td>2024-03-30</td>
+                    <td>1</td>
+                    <td>2020-05-19</td>
+                    <td>08:00:00</td>
+                  </tr>
+                  <tr>
+                    <td>000-000-444</td>
+                    <td>90296367</td>
+                    <td>400038</td>
+                    <td>Farouk Maamon Tamer & Company</td>
+                    <td>390012020022015</td>
+                    <td>50</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>128085346</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>20</td>
+                    <td>USD</td>
+                    <td>200</td>
+                    <td>2245</td>
+                    <td>2276</td>
+                    <td>123</td>
+                    <td>24324gt.87</td>
+                    <td>2020-06-04</td>
+                    <td>2021-06-04</td>
+                    <td>1</td>
+                    <td>2020-07-26</td>
+                    <td>08:00:00</td>
+                  </tr>
+                  <tr>
+                    <td>000-000-444</td>
+                    <td>90296367</td>
+                    <td>400038</td>
+                    <td>Farouk Maamon Tamer & Company</td>
+                    <td>390012020022015</td>
+                    <td>50</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>128085346</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>20</td>
+                    <td>USD</td>
+                    <td>200</td>
+                    <td>2562</td>
+                    <td>2276</td>
+                    <td>200</td>
+                    <td>10453018</td>
+                    <td>2020-02-28</td>
+                    <td>2023-12-01</td>
+                    <td>1</td>
+                    <td>2020-07-26</td>
+                    <td>08:00:00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <nav
+          class="navbar fixed-bottom bg-white br_title p-0"
+          style="border: none;"
+        >
+          <h6
+            class="mb-0"
+            style="font-size: 12px; color: #17a2b8; font-weight: bold;"
+          >
+            Nupco
+          </h6>
+        </nav>
+      </footer>
+    </div>
+
+    <!-- script files -->
+    <script
+      src="https://kit.fontawesome.com/80895110d5.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <!--- Datatables --->
+    <script
+      src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"
+      type="text/javascript"
+    ></script>
+
+    <script type="text/javascript">
+      $("#v_id1").click(function () {
+        $("#dt1").val("00/00/0000");
+        $("#dt2").val("00/00/0000");
+        $("#v_ids").val("");
+        $("#dr").val("").trigger("change");
+      });
+      $("#v_id2").click(function () {
+        $("#dt1").val("00/00/0000");
+        $("#dt2").val("00/00/0000");
+        $("#v_ids").val("");
+        $("#dr").val("").trigger("change");
+      });
+      $("#dt1").click(function () {
+        $("#v_id1").val("000-000-000");
+        $("#v_id2").val("000-000-000");
+        $("#v_ids").val("");
+        $("#dr").val("").trigger("change");
+      });
+      $("#dt2").click(function () {
+        $("#v_id1").val("000-000-000");
+        $("#v_id2").val("000-000-000");
+        $("#v_ids").val("");
+        $("#dr").val("").trigger("change");
+      });
+      $("#v_ids").click(function () {
+        $("#v_id1").val("000-000-000");
+        $("#v_id2").val("000-000-000");
+        $("#dt1").val("00/00/0000");
+        $("#dt2").val("00/00/0000");
+        $("#dr").val("").trigger("change");
+      });
+      $("#dr").click(function () {
+        $("#v_id1").val("000-000-000");
+        $("#v_id2").val("000-000-000");
+        $("#dt1").val("00/00/0000");
+        $("#dt2").val("00/00/0000");
+        $("#v_ids").val("");
+      });
+
+      // function key(x){
+      //       if(x==1){
+      //           $( "#v_id1" ).val( '000-000-000' );
+      //           $( "#v_id2" ).val( '000-000-000' );
+      //           $( "#dt1" ).val( '00/00/0000' );
+      //           $( "#dt2" ).val( '00/00/0000' );
+      //           $( "#v_id" ).val( '' );
+      //           $( "#dr" ).val('').trigger("change");
+      //       }else if(x==2){
+      //           $( "#v_id1" ).val( '000-000-000' );
+      //           $( "#v_id2" ).val( '000-000-000' );
+      //           $( "#v_id" ).val( '' );
+      //           $( "#dr" ).val('').trigger("change");
+      //       }else if(x==3){
+      //           $( "#v_id1" ).val( '000-000-000' );
+      //           $( "#v_id2" ).val( '000-000-000' );
+      //           $( "#dt1" ).val( '00/00/0000' );
+      //           $( "#dt2" ).val( '00/00/0000' );
+      //           $( "#dr" ).val('').trigger("change");
+      // }else if(x==4){
+      //     $( "#v_id1" ).val( '000-000-000' );
+      //     $( "#v_id2" ).val( '000-000-000' );
+      //     $( "#dt1" ).val( '00/00/0000' );
+      //     $( "#dt2" ).val( '00/00/0000' );
+      //     $( "#v_id" ).val( '' );
+      //     }
+      // }
+
+      $(document).ready(function () {
+        $(".js-example-basic-multiple").select2();
+      });
+
+      /*function run(){
+            var v_id1 = $('#v_id1').val();
+            var v_id2 = $('#v_id2').val();
+        $.ajax({          
+              type: "GET",
+              url: "get.php",
+              data:'id1='+v_id1+'&id2='+v_id2,
+              success: function(data){
+                  //alert(data);
+             $("#repo").html(data);
+              }
+         });
+      }*/
+    </script>
+    <script type="text/javascript">
+      function downloadCSV(csv, filename) {
+        var csvFile;
+        var downloadLink;
+
+        // CSV file
+        csvFile = new Blob([csv], { type: "text/csv" });
+
+        // Download link
+        downloadLink = document.createElement("a");
+
+        // File name
+        downloadLink.download = filename;
+
+        // Create a link to the file
+        downloadLink.href = window.URL.createObjectURL(csvFile);
+
+        // Hide download link
+        downloadLink.style.display = "none";
+
+        // Add the link to DOM
+        document.body.appendChild(downloadLink);
+
+        // Click download link
+        downloadLink.click();
+      }
+      function exportTableToCSV(filename) {
+        var csv = [];
+        var rows = document.querySelectorAll("table tr");
+
+        for (var i = 0; i < rows.length; i++) {
+          var row = [],
+            cols = rows[i].querySelectorAll("td, th");
+
+          for (var j = 0; j < cols.length; j++) row.push(cols[j].innerText);
+
+          csv.push(row.join(","));
+        }
+
+        // Download CSV file
+        downloadCSV(csv.join("\n"), filename);
+      }
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        //    	$('#example').DataTable();
+        // } );
+
+        //     $('#example').DataTable( {
+        //         "order": [[ 0, "desc" ]]
+        //     } );
+        // } );
+        $("#example").dataTable({
+          order: [[0, "desc"]],
+          drawCallback: function (settings) {
+            var pagination = $(this)
+              .closest(".dataTables_wrapper")
+              .find(".dataTables_paginate");
+            pagination.toggle(this.api().page.info().pages > 1);
+          },
+        });
+      });
+      $(".alert").delay(10000).fadeOut("slow");
+    </script>
+  </body>
+</html>
